@@ -1,0 +1,921 @@
+{
+	"info": {
+		"_postman_id": "c0360872-3752-4a20-be4b-669727dde16e",
+		"name": "Subscription",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Plans",
+			"item": [
+				{
+					"name": "List of Subscription Plans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plans?limit=10&page=0&sort[0][key]=duration&sort[0][direction]=desc",
+							"host": [
+								"{{base_url}}plans"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "sort[0][key]",
+									"value": "duration"
+								},
+								{
+									"key": "sort[0][direction]",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subscription Plan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plans?title=test plan&store_id=1&duration=30&price=300000&max_books=10&max_audios=10&total_publisher_share=30",
+							"host": [
+								"{{base_url}}plans"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "test plan"
+								},
+								{
+									"key": "store_id",
+									"value": "1"
+								},
+								{
+									"key": "duration",
+									"value": "30"
+								},
+								{
+									"key": "price",
+									"value": "300000"
+								},
+								{
+									"key": "max_books",
+									"value": "10"
+								},
+								{
+									"key": "max_audios",
+									"value": "10"
+								},
+								{
+									"key": "total_publisher_share",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subscription Plan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plans/107?title=test plan2&store_id=2&duration=50&price=300000&max_books=10&max_audios=10&total_publisher_share=30",
+							"host": [
+								"{{base_url}}plans"
+							],
+							"path": [
+								"107"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "test plan2"
+								},
+								{
+									"key": "store_id",
+									"value": "2"
+								},
+								{
+									"key": "duration",
+									"value": "50"
+								},
+								{
+									"key": "price",
+									"value": "300000"
+								},
+								{
+									"key": "max_books",
+									"value": "10"
+								},
+								{
+									"key": "max_audios",
+									"value": "10"
+								},
+								{
+									"key": "total_publisher_share",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show single Plan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plans/107",
+							"host": [
+								"{{base_url}}plans"
+							],
+							"path": [
+								"107"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove single Plan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plans/107",
+							"host": [
+								"{{base_url}}plans"
+							],
+							"path": [
+								"107"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "List of Subscription Payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}payments?limit=10&page=1&sort[0][key]=amount&sort[0][direction]=desc",
+							"host": [
+								"{{base_url}}payments"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sort[0][key]",
+									"value": "amount"
+								},
+								{
+									"key": "sort[0][direction]",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subscription Payments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}payments?subscription_user_id&plan_id&amount&payment_type=wallet&payment_id",
+							"host": [
+								"{{base_url}}payments"
+							],
+							"query": [
+								{
+									"key": "subscription_user_id",
+									"value": 1
+								},
+								{
+									"key": "plan_id",
+									"value": 1
+								},
+								{
+									"key": "amount",
+									"value": 30000
+								},
+								{
+									"key": "payment_type",
+									"value": "wallet"
+								},
+								{
+									"key": "payment_id",
+									"value": 2132234
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show single Payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}payments/107",
+							"host": [
+								"{{base_url}}payments"
+							],
+							"path": [
+								"107"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List of Users Plans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users/106",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Users Plans",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users/1?user_id=447708&start_date=2020-12-23&device_id=1236547",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"1"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "447708"
+								},
+								{
+									"key": "start_date",
+									"value": "2020-12-23"
+								},
+								{
+									"key": "duration",
+									"value": "67",
+									"disabled": true
+								},
+								{
+									"key": "device_id",
+									"value": "1236547"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Single Users Plans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users/106/14",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"106",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Single Users Plans",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users/106/14",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"106",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check user is subscribed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users/check-subscription/447708",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"check-subscription",
+								"447708"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f45a62a3-f763-4be9-a479-935dbdefee39",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "44721116-f86f-4684-80d6-2dc4ce7f987c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Entities",
+			"item": [
+				{
+					"name": "List of Subscription Entities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}entities?limit=10&page=1&sort[0][key]=publisher_share&sort[0][direction]=desc",
+							"host": [
+								"{{base_url}}entities"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sort[0][key]",
+									"value": "publisher_share"
+								},
+								{
+									"key": "sort[0][direction]",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subscription Entity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}entities?entity_type=book&entity_id=1&price_factor=30&publisher_id=1&publisher_share=10",
+							"host": [
+								"{{base_url}}entities"
+							],
+							"query": [
+								{
+									"key": "entity_type",
+									"value": "book"
+								},
+								{
+									"key": "entity_id",
+									"value": "1"
+								},
+								{
+									"key": "price_factor",
+									"value": "30"
+								},
+								{
+									"key": "publisher_id",
+									"value": "1"
+								},
+								{
+									"key": "publisher_share",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subscription Entity",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}entities/107?entity_type=book&entity_id=1&price_factor=30&publisher_id=1&publisher_share=10",
+							"host": [
+								"{{base_url}}entities"
+							],
+							"path": [
+								"107"
+							],
+							"query": [
+								{
+									"key": "entity_type",
+									"value": "book"
+								},
+								{
+									"key": "entity_id",
+									"value": "1"
+								},
+								{
+									"key": "price_factor",
+									"value": "30"
+								},
+								{
+									"key": "publisher_id",
+									"value": "1"
+								},
+								{
+									"key": "publisher_share",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show single Subscription Entity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}entities/107",
+							"host": [
+								"{{base_url}}entities"
+							],
+							"path": [
+								"107"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove single Subscription Entity",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}entities/107",
+							"host": [
+								"{{base_url}}entities"
+							],
+							"path": [
+								"107"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PlanEntities",
+			"item": [
+				{
+					"name": "List of Subscription PlanEntities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plan_entities/107?limit=10&page=1&sort[0][key]=entity_id&sort[0][direction]=desc",
+							"host": [
+								"{{base_url}}plan_entities"
+							],
+							"path": [
+								"107"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sort[0][key]",
+									"value": "entity_id"
+								},
+								{
+									"key": "sort[0][direction]",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subscription PlanEntities",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plan_entities/1?entity_id=1",
+							"host": [
+								"{{base_url}}plan_entities"
+							],
+							"path": [
+								"1"
+							],
+							"query": [
+								{
+									"key": "entity_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subscription PlanEntities",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plan_entities/107/1?entity_id=1&plan_id=1",
+							"host": [
+								"{{base_url}}plan_entities"
+							],
+							"path": [
+								"107",
+								"1"
+							],
+							"query": [
+								{
+									"key": "entity_id",
+									"value": "1"
+								},
+								{
+									"key": "plan_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show single PlanEntities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plan_entities/107/1",
+							"host": [
+								"{{base_url}}plan_entities"
+							],
+							"path": [
+								"107",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove single PlanEntities",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plan_entities/107/1",
+							"host": [
+								"{{base_url}}plan_entities"
+							],
+							"path": [
+								"107",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check whether user has access to content",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plan_entities/check-content-available/22/100126",
+							"host": [
+								"{{base_url}}plan_entities"
+							],
+							"path": [
+								"check-content-available",
+								"22",
+								"100126"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sync",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}plan_entities/sync/447708?entity_id[]=69249&entity_id[]=80061&entity_id[]=100126&entity_id[]=4339&entity_id[]=64664",
+							"host": [
+								"{{base_url}}plan_entities"
+							],
+							"path": [
+								"sync",
+								"447708"
+							],
+							"query": [
+								{
+									"key": "entity_id[]",
+									"value": "69249"
+								},
+								{
+									"key": "entity_id[]",
+									"value": "80061"
+								},
+								{
+									"key": "entity_id[]",
+									"value": "100126"
+								},
+								{
+									"key": "entity_id[]",
+									"value": "4339"
+								},
+								{
+									"key": "entity_id[]",
+									"value": "64664"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SettlementPeriods",
+			"item": [
+				{
+					"name": "List of Subscription SettlementPeriods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}settlement_periods/6?limit=10&page=0&sort[0][key]=settelment_date&sort[0][direction]=asc",
+							"host": [
+								"{{base_url}}settlement_periods"
+							],
+							"path": [
+								"6"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "sort[0][key]",
+									"value": "settelment_date"
+								},
+								{
+									"key": "sort[0][direction]",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "UserHistories",
+			"item": [
+				{
+					"name": "List of Subscription UserHistories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}user_histories/107/1?limit=10&page=1&sort[0][key]=start_date&sort[0][direction]=desc",
+							"host": [
+								"{{base_url}}user_histories/1"
+							],
+							"path": [
+								"1"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sort[0][key]",
+									"value": "start_date"
+								},
+								{
+									"key": "sort[0][direction]",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Subscription UserHistories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}user_histories/22/69249",
+							"host": [
+								"{{base_url}}user_histories"
+							],
+							"path": [
+								"22",
+								"69249"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subscription UserHistories",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}user_histories/107/1/1?read_percent_start&read_percent_end",
+							"host": [
+								"{{base_url}}user_histories"
+							],
+							"path": [
+								"107",
+								"1",
+								"1"
+							],
+							"query": [
+								{
+									"key": "read_percent_start",
+									"value": 15
+								},
+								{
+									"key": "read_percent_end",
+									"value": 25.23
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show single UserHistories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}user_histories/1/1",
+							"host": [
+								"{{base_url}}user_histories"
+							],
+							"path": [
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove single UserHistories",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}user_histories/1/1",
+							"host": [
+								"{{base_url}}user_histories"
+							],
+							"path": [
+								"107",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6bc7cec7-dfaf-4abd-a722-52f645b75062",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6dc03e92-cd5b-4042-aa34-06ceacc459f7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

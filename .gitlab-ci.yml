@@ -1,0 +1,91 @@
+before_script:
+  - echo ${CI_COMMIT_REF_NAME}
+  - echo ${GIT_URL}
+  - echo ${APP_DEBUG}
+
+deploy_prod:
+  stage: deploy
+  when: manual
+  variables:
+    GIT_URL: "git@gitlab.fidibo.com:microservices/subscription-laravel.git"
+  only:
+    - master
+  tags:
+    - prod-b
+  script:
+    - cp .env.prd .env
+    - sed -i 's/MASTER_CLUSTER\=false/MASTER_CLUSTER=true/gm' .env
+    - echo "Deploy from ${CI_COMMIT_REF_NAME}"
+    - sudo docker-compose up --force-recreate -d
+    - sudo docker exec subscriptionphp2 composer  install --ignore-platform-reqs
+    - sudo docker exec subscriptionphp2 chmod 777 -R /var/www/storage
+    - sudo chmod 777 -R storage
+    - sudo chown gitlab-runner. -R ./
+
+deploy_prod_36:
+  stage: deploy
+  when: manual
+  variables:
+    GIT_URL: "git@gitlab.fidibo.com:microservices/subscription-laravel.git"
+  only:
+    - master
+  tags:
+    - prod-b36
+  script:
+    - cp .env.prd .env
+    - echo "Deploy from ${CI_COMMIT_REF_NAME}"
+    - sudo docker-compose up --force-recreate -d
+    - sudo docker exec subscriptionphp2 composer  install --ignore-platform-reqs
+    - sudo docker exec subscriptionphp2 chmod 777 -R /var/www/storage
+    - sudo chmod 777 -R storage
+    - sudo chown gitlab-runner. -R ./
+
+deploy_prod_22:
+  stage: deploy
+  when: manual
+  variables:
+    GIT_URL: "git@gitlab.fidibo.com:microservices/subscription-laravel.git"
+  only:
+    - master
+  tags:
+    - prodb-22
+  script:
+    - cp .env.prd .env
+    - echo "Deploy from ${CI_COMMIT_REF_NAME}"
+    - sudo docker-compose up --force-recreate -d
+    - sudo docker exec subscriptionphp2 composer  install --ignore-platform-reqs
+    - sudo docker exec subscriptionphp2 chmod 777 -R /var/www/storage
+    - sudo chmod 777 -R storage
+    - sudo chown gitlab-runner. -R ./
+
+deploy_dev:
+  stage: deploy
+  variables:
+    GIT_URL: "git@gitlab.fidibo.com:microservices/subscription-laravel.git"
+  only:
+    - develop
+  tags:
+    - subscription-dev
+  script:
+    - echo "Deploy from ${CI_COMMIT_REF_NAME}"
+    - cp .env.dev .env
+    - sudo chown gitlab-runner. -R .
+    - sudo composer install --ignore-platform-reqs
+    - sudo docker-compose -f docker-compose.dev.yml up --force-recreate -d
+    - sudo chmod 777 -R storage
+    - sudo chown gitlab-runner. -R ./
+
+deploy_stage:
+  stage: deploy
+  variables:
+        GIT_URL: "git@gitlab.fidibo.com:microservices/subscription-laravel.git"
+  only:
+    - stage
+  tags:
+    - subscription-runner
+  script:
+    - cp .env.stage .env
+    - composer install --ignore-platform-reqs
+    - sudo docker-compose -f docker-compose.stage.yml up --force-recreate -d
+    - sudo chmod 777 -R storage
+    - sudo chown gitlab-runner. -R ./
